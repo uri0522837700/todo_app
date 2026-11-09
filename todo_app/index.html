@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#eef5ff">
+  <title>오늘의 할 일</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="오늘의 할 일 홈">
+        <img src="images/task-mark.svg" alt="" class="brand-mark">
+        <span>오늘의 할 일</span>
+      </a>
+      <span class="today-chip" id="todayLabel"></span>
+    </header>
+
+    <section class="welcome">
+      <div>
+        <p class="eyebrow">YOUR DAILY SPACE</p>
+        <h1>작은 한 걸음이<br><span>멋진 하루</span>를 만들어요.</h1>
+        <p class="welcome-copy">해야 할 일을 정리하고, 하나씩 가볍게 완료해 보세요.</p>
+      </div>
+      <img src="images/planner-illustration.svg" alt="체크리스트와 연필 일러스트" class="hero-art">
+    </section>
+
+    <section class="stats" aria-label="할 일 요약">
+      <article class="stat-card"><span class="stat-icon blue">✦</span><div><small>전체 할 일</small><strong id="totalCount">0</strong></div></article>
+      <article class="stat-card"><span class="stat-icon green">✓</span><div><small>완료했어요</small><strong id="doneCount">0</strong></div></article>
+      <article class="stat-card"><span class="stat-icon orange">◷</span><div><small>남은 할 일</small><strong id="leftCount">0</strong></div></article>
+    </section>
+
+    <section class="workspace">
+      <div class="section-heading">
+        <div><p class="eyebrow">MY CHECKLIST</p><h2>나의 할 일</h2></div>
+        <span class="progress-label" id="progressLabel">0% 완료</span>
+      </div>
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+
+      <form id="taskForm" class="add-form">
+        <label class="sr-only" for="taskInput">새로운 할 일</label>
+        <input id="taskInput" type="text" maxlength="100" placeholder="새로운 할 일을 입력해 주세요..." autocomplete="off" required>
+        <input id="dateInput" type="date" aria-label="마감일">
+        <select id="priorityInput" aria-label="우선순위">
+          <option value="normal">보통</option><option value="high">높음</option><option value="low">낮음</option>
+        </select>
+        <button class="add-button" type="submit"><span>＋</span> 추가하기</button>
+      </form>
+
+      <div class="toolbar">
+        <div class="filters" role="group" aria-label="할 일 필터">
+          <button class="filter-btn active" data-filter="all">전체</button>
+          <button class="filter-btn" data-filter="active">진행 중</button>
+          <button class="filter-btn" data-filter="done">완료</button>
+        </div>
+        <label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="할 일 검색"></label>
+      </div>
+
+      <ul id="taskList" class="task-list" aria-live="polite"></ul>
+      <div id="emptyState" class="empty-state">
+        <img src="images/empty-list.svg" alt="" >
+        <strong>아직 등록된 할 일이 없어요.</strong>
+        <span>위 입력창에 오늘 할 일을 적어보세요!</span>
+      </div>
+      <footer class="list-footer">
+        <span id="remainingText">남은 할 일 0개</span>
+        <button id="clearDoneBtn" class="text-button" type="button">완료한 일 모두 지우기</button>
+      </footer>
+    </section>
+    <p class="app-note">입력한 내용은 이 브라우저에 자동 저장됩니다. <span>오늘도 충분히 잘하고 있어요 ☁</span></p>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
